@@ -37,7 +37,7 @@ public class MorseCodeConverter {
             }
         }
 
-        return morseString.toString();
+        return morseString.toString().trim();
     }
 
     public String toEnglish(String morseCodeInput) {

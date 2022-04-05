@@ -13,8 +13,8 @@ class MorseCodeConverterTest {
         //when
 
         //then
-        assertEquals("-- --- .-. ... . -.-. --- -.. . ", converter.toMorseCode("morsecode"));
-        assertEquals("-- --- .-. ... . -.-. --- -.. . ", converter.toMorseCode("morse code"));
+        assertEquals("-- --- .-. ... . -.-. --- -.. .", converter.toMorseCode("morsecode"));
+        assertEquals("-- --- .-. ... . -.-. --- -.. .", converter.toMorseCode("morse code"));
     }
 
     @Test
@@ -24,7 +24,7 @@ class MorseCodeConverterTest {
         //when
 
         //then
-        assertEquals("-- --- .-. ... . -.-. --- -.. . ", converter.toMorseCode("mORSecode"));
+        assertEquals("-- --- .-. ... . -.-. --- -.. .", converter.toMorseCode("mORSecode"));
     }
 
     @Test
@@ -34,7 +34,7 @@ class MorseCodeConverterTest {
         //when
 
         //then
-        assertEquals("-- --- .-. ... . -.-. --- -.. . ", converter.toMorseCode("morse012code"));
+        assertEquals("-- --- .-. ... . -.-. --- -.. .", converter.toMorseCode("morse012code"));
 
     }
 
