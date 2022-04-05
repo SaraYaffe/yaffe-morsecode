@@ -4,19 +4,19 @@ import java.awt.event.ActionEvent;
 
 public class MorseCodeFrame extends JFrame {
 
-    private MorseCodePresenter presenter;
-    MorseCodeConverter codeConverter = new MorseCodeConverter();
+    private final MorseCodePresenter presenter;
 
     private JPanel panel;
-    private JTextArea englishText;
-    private JTextArea morseCodeText;
+    private final JTextArea englishText;
+    private final JTextArea morseCodeText;
     private JButton englishButton;
     private JButton morseCodeButton;
-    private JLabel englishOutput;
-    private JLabel morseCodeOutput;
+    private final JLabel englishOutput;
+    private final JLabel morseCodeOutput;
 
     public MorseCodeFrame(){
 
+        MorseCodeConverter codeConverter = new MorseCodeConverter();
         presenter = new MorseCodePresenter(this, codeConverter);
 
         setTitle("Morse Code Converter");
@@ -55,13 +55,19 @@ public class MorseCodeFrame extends JFrame {
 
     private void onSubmitClickedToEnglish(ActionEvent actionEvent) {
 
-        String result = codeConverter.toEnglish(morseCodeText.getText());
-        englishOutput.setText(result);
+        presenter.toEnglish(morseCodeText.getText());
     }
 
     private void onSubmitClickedToMorse(ActionEvent actionEvent) {
 
-        String result = codeConverter.toMorseCode(englishText.getText());
+        presenter.toMorseCode(englishText.getText());
+    }
+
+    public void setEnglishOutput(String result){
+        englishOutput.setText(result);
+    }
+
+    public void setMorseCodeOutput(String result) {
         morseCodeOutput.setText(result);
     }
 
@@ -69,4 +75,5 @@ public class MorseCodeFrame extends JFrame {
         JFrame frame = new MorseCodeFrame();
         frame.setVisible(true);
     }
+
 }

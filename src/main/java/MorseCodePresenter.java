@@ -7,4 +7,12 @@ public class MorseCodePresenter {
         this.model = model;
         this.view = view;
     }
+
+    public void toEnglish(String morseCodeInput) {
+        view.setEnglishOutput(model.toEnglish(morseCodeInput));
+    }
+
+    public void toMorseCode(String englishInput) {
+        view.setMorseCodeOutput(model.toMorseCode(englishInput));
+    }
 }
