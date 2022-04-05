@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class MorseCodeConverter {
@@ -21,6 +22,8 @@ public class MorseCodeConverter {
     }
 
     public String toMorseCode(String englishInput) {
+        englishInput = englishInput.toLowerCase();
+
         StringBuilder morseString = new StringBuilder();
         String[] array = englishInput.split(" ");
 
@@ -28,7 +31,9 @@ public class MorseCodeConverter {
             for (int i = 0; i < s.length(); i++) {
                 try {
                     morseString.append(code[s.charAt(i) - 'a']).append(" ");
-                } catch (Exception ignored) {}
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
             }
         }
 
@@ -40,8 +45,9 @@ public class MorseCodeConverter {
         String[] array = morseCodeInput.split(" ");
 
         for (String s : array) {
-            if(morseToEnglish.get(s) != null){
-                englishString.append(morseToEnglish.get(s));
+            Character letter = morseToEnglish.get(s);
+            if(letter != null){
+                englishString.append(letter);
             }
         }
 

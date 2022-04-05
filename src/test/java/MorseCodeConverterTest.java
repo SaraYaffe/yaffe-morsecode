@@ -4,10 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MorseCodeConverterTest {
 
+    MorseCodeConverter converter = new MorseCodeConverter();
+
     @Test
     public void toMorseCode(){
         //given
-        MorseCodeConverter converter = new MorseCodeConverter();
 
         //when
 
@@ -17,9 +18,18 @@ class MorseCodeConverterTest {
     }
 
     @Test
+    public void toMorseCode_upper() {
+        //given
+
+        //when
+
+        //then
+        assertEquals("-- --- .-. ... . -.-. --- -.. . ", converter.toMorseCode("mORSecode"));
+    }
+
+    @Test
     public void toMorseCode_notCompatible(){
         //given
-        MorseCodeConverter converter = new MorseCodeConverter();
 
         //when
 
@@ -31,7 +41,6 @@ class MorseCodeConverterTest {
     @Test
     public void toEnglish(){
         //given
-        MorseCodeConverter converter = new MorseCodeConverter();
 
         //when
 
@@ -42,7 +51,6 @@ class MorseCodeConverterTest {
     @Test
     public void toEnglish_notCompatible(){
         //given
-        MorseCodeConverter converter = new MorseCodeConverter();
 
         //when
 
