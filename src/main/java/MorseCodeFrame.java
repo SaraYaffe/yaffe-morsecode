@@ -7,8 +7,8 @@ public class MorseCodeFrame extends JFrame {
     private final MorseCodePresenter presenter;
 
     private JPanel panel;
-    private final JTextArea englishText;
-    private final JTextArea morseCodeText;
+    private final JTextField englishText;
+    private final JTextField morseCodeText;
     private JButton englishButton;
     private JButton morseCodeButton;
     private final JLabel englishOutput;
@@ -28,28 +28,34 @@ public class MorseCodeFrame extends JFrame {
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         add(panel);
 
-        englishText = new JTextArea();
+        englishText = new JTextField();
+        englishText.setHorizontalAlignment(JTextField.CENTER);
         englishText.setPreferredSize(new Dimension(120, 60));
         panel.add(englishText);
+        panel.add(Box.createRigidArea(new Dimension(0, 15)));
 
         morseCodeButton = new JButton("Convert to Morse Code");
         morseCodeButton.addActionListener(this::onSubmitClickedToMorse);
         panel.add(morseCodeButton);
+        panel.add(Box.createRigidArea(new Dimension(0, 20)));
 
         morseCodeOutput = new JLabel("output");
         panel.add(morseCodeOutput);
+        panel.add(Box.createRigidArea(new Dimension(0, 50)));
 
-        morseCodeText = new JTextArea();
+        morseCodeText = new JTextField();
+        morseCodeText.setHorizontalAlignment(JTextField.CENTER);
         morseCodeText.setPreferredSize(new Dimension(120, 60));
         panel.add(morseCodeText);
+        panel.add(Box.createRigidArea(new Dimension(0, 15)));
 
         englishButton = new JButton("Convert to English");
         englishButton.addActionListener(this::onSubmitClickedToEnglish);
         panel.add(englishButton);
+        panel.add(Box.createRigidArea(new Dimension(0, 20)));
 
         englishOutput = new JLabel("output");
         panel.add(englishOutput);
-
 
     }
 
